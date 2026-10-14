@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Galería multimedia personal de Anghelo Rico.">
+    <title>Galería 3D | Anghelo Rico</title>
+
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/galeria.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- MENÚ LATERAL -->
+    <aside id="sidebar">
+
+        <button class="btn-pin pinned" id="btnPin" aria-label="Ocultar menú">
+            <i class="fa-solid fa-thumbtack"></i>
+        </button>
+
+        <h2>
+            <i class="fa-solid fa-user-graduate"></i>
+            Anghelo Rico
+        </h2>
+
+        <nav>
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i> Inicio
+            </a>
+
+            <a href="sobre.html">
+                <i class="fa-solid fa-address-card"></i> Sobre mí
+            </a>
+
+            <a href="proyectos.html">
+                <i class="fa-solid fa-laptop-code"></i> Proyectos
+            </a>
+
+            <a href="blog.html">
+                <i class="fa-solid fa-blog"></i> Blog
+            </a>
+
+            <a href="galeria.html" class="active">
+                <i class="fa-solid fa-images"></i> Galería
+            </a>
+
+            <a href="contacto.html">
+                <i class="fa-solid fa-envelope"></i> Contacto
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="content" id="mainContent">
+
+        <!-- ENCABEZADO -->
+        <header class="hero-gallery">
+
+            <div class="hero-decoration hero-decoration-one"></div>
+            <div class="hero-decoration hero-decoration-two"></div>
+
+            <div class="hero-content">
+                <span class="hero-tag">
+                    <i class="fa-solid fa-sparkles"></i>
+                    MI ESPACIO PERSONAL
+                </span>
+
+                <h1>
+                    Mi Galería
+                    <span>Multimedia</span>
+                </h1>
+
+                <p>
+                    Fotografías, recuerdos y momentos especiales
+                    reunidos en un solo lugar.
+                </p>
+
+                <a href="#fotos" class="hero-button">
+                    Explorar galería
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+
+            <div class="hero-icon">
+                <i class="fa-solid fa-photo-film"></i>
+            </div>
+
+        </header>
+
+
+        <main>
+
+            <!-- SECCIÓN DE FOTOGRAFÍAS -->
+            <section class="gallery-section" id="fotos">
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+
+                    <div>
+                        <span class="section-subtitle">MIS RECUERDOS</span>
+                        <h2>Galería de fotografías</h2>
+                        <p>Explora cada imagen con los controles laterales.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- CARRUSEL PRINCIPAL -->
+                <div class="photo-carousel" id="photoCarousel">
+
+                    <button class="carousel-arrow arrow-left"
+                            id="prevPhoto"
+                            aria-label="Fotografía anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+
+                    <div class="photo-stage">
+
+                        <div class="photo-counter">
+                            <i class="fa-solid fa-camera"></i>
+                            <span id="photoCounter">01 / 09</span>
+                        </div>
+
+                        <div class="photo-frame" id="photoFrame">
+
+                            <img
+                                src="img/yo.jpg"
+                                alt="Foto de perfil"
+                                id="mainPhoto"
+                            >
+
+                            <div class="photo-overlay">
+                                <span class="photo-category">
+                                    <i class="fa-solid fa-star"></i>
+                                    MI GALERÍA
+                                </span>
+
+                                <h3 id="photoTitle">Foto de perfil</h3>
+
+                                <p id="photoDescription">
+                                    Un recuerdo especial.
+                                </p>
+                            </div>
+
+                            <button class="expand-photo"
+                                    id="expandPhoto"
+                                    aria-label="Ampliar fotografía">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="carousel-arrow arrow-right"
+                            id="nextPhoto"
+                            aria-label="Fotografía siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- MINIATURAS -->
+                <div class="thumbnail-heading">
+                    <div>
+                        <h3>
+                            <i class="fa-solid fa-layer-group"></i>
+                            Explorar fotografías
+                        </h3>
+
+                        <p>Selecciona una miniatura para cambiar la imagen.</p>
+                    </div>
+
+                    <span class="thumbnail-hint">
+                        <i class="fa-solid fa-hand-pointer"></i>
+                        Toca una foto
+                    </span>
+                </div>
+
+
+                <div class="thumbnail-container">
+
+                    <button class="thumbnail-arrow"
+                            id="prevThumb"
+                            aria-label="Miniaturas anteriores">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
+
+                    <div class="thumbnail-track" id="thumbnailTrack">
+
+                        <button class="thumbnail active"
+                                data-index="0"
+                                aria-label="Ver foto de perfil">
+                            <img src="img/yo.jpg" alt="Foto de perfil">
+                            <span>Perfil</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="1"
+                                aria-label="Ver foto programando">
+                            <img src="img/espejo.jpeg" alt="Programando">
+                            <span>Momentos</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="2"
+                                aria-label="Ver foto del laboratorio">
+                            <img src="img/yoooooo.jpg" alt="Laboratorio">
+                            <span>Estudios</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="3"
+                                aria-label="Ver foto del gatito">
+                            <img src="img/gatito.jpeg" alt="Gatito">
+                            <span>Gatito</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="4"
+                                aria-label="Ver foto de Anghelo">
+                            <img src="img/anghex.jpeg" alt="Anghelo">
+                            <span>Yo</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="5"
+                                aria-label="Ver foto del paisaje">
+                            <img src="img/yopaisaje.jpeg" alt="Paisaje">
+                            <span>Paisaje</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="6"
+                                aria-label="Ver foto con amigos">
+                            <img src="img/amigos.jpeg" alt="Con amigos">
+                            <span>Amigos</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="7"
+                                aria-label="Ver foto de trabajo">
+                            <img src="img/yochamba.jpeg" alt="Trabajo">
+                            <span>Chamba</span>
+                        </button>
+
+                        <button class="thumbnail"
+                                data-index="8"
+                                aria-label="Ver foto de la moto">
+                            <img src="img/yomoto.jpeg" alt="Moto">
+                            <span>Moto</span>
+                        </button>
+
+                    </div>
+
+                    <button class="thumbnail-arrow"
+                            id="nextThumb"
+                            aria-label="Miniaturas siguientes">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
+
+                </div>
+
+                <div class="gallery-progress">
+                    <div class="gallery-progress-bar" id="progressBar"></div>
+                </div>
+
+            </section>
+
+
+            <!-- SEPARADOR DECORATIVO -->
+            <div class="gallery-divider">
+                <span></span>
+                <i class="fa-solid fa-film"></i>
+                <span></span>
+            </div>
+
+
+            <!-- SECCIÓN DE VIDEOS -->
+            <section class="gallery-section video-section" id="videos">
+
+                <div class="section-heading">
+
+                    <div class="section-icon video-icon">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </div>
+
+                    <div>
+                        <span class="section-subtitle">MOMENTOS EN MOVIMIENTO</span>
+                        <h2>Galería de videos</h2>
+                        <p>Revive tus momentos favoritos en formato audiovisual.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="video-grid">
+
+                    <article class="video-card">
+
+                        <div class="video-card-header">
+                            <span class="video-label">
+                                <i class="fa-solid fa-play"></i>
+                                VIDEO DESTACADO
+                            </span>
+
+                            <i class="fa-solid fa-film video-decoration"></i>
+                        </div>
+
+                        <div class="video-frame">
+                            <video controls preload="metadata">
+                                <source src="videos/videoxd.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+
+                        <div class="video-info">
+                            <h3>
+                                <i class="fa-solid fa-video"></i>
+                                Mis momentos en video
+                            </h3>
+
+                            <p>
+                                Un espacio para guardar y compartir
+                                recuerdos audiovisuales.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECCIÓN DE AUDIO -->
+            <section class="gallery-section audio-section" id="audio">
+
+                <div class="section-heading">
+
+                    <div class="section-icon audio-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+
+                    <div>
+                        <span class="section-subtitle">SONIDO Y AMBIENTE</span>
+                        <h2>Mi espacio musical</h2>
+                        <p>Reproduce el audio desde este apartado.</p>
+                    </div>
+
+                </div>
+
+                <div class="audio-card">
+
+                    <div class="audio-artwork">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+
+                    <div class="audio-details">
+                        <h3>Reproductor de audio</h3>
+                        <p>Un acompañamiento para esta galería.</p>
+
+                        <audio controls preload="metadata">
+                            <source src="audio/auditoo.ogg" type="audio/ogg">
+                            Tu navegador no soporta el audio.
+                        </audio>
+                    </div>
+
+                    <div class="audio-equalizer" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- PIE DE PÁGINA -->
+        <footer>
+            <div class="footer-icon">
+                <i class="fa-solid fa-camera-retro"></i>
+            </div>
+
+            <p>
+                &copy; 2026 Anghelo Rico - Todos los derechos reservados.
+            </p>
+
+            <span>Momentos que merecen ser recordados.</span>
+        </footer>
+
+    </div>
+
+
+    <!-- VISOR AMPLIADO -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+
+        <button class="lightbox-close"
+                id="closeLightbox"
+                aria-label="Cerrar imagen">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <button class="lightbox-arrow lightbox-prev"
+                id="lightboxPrev"
+                aria-label="Imagen anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="lightbox-content">
+            <img src="img/yo.jpg" alt="Fotografía ampliada" id="lightboxImage">
+            <p id="lightboxCaption">Foto de perfil</p>
+        </div>
+
+        <button class="lightbox-arrow lightbox-next"
+                id="lightboxNext"
+                aria-label="Imagen siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+
+    <script>
+        // DATOS DE LAS FOTOGRAFÍAS
+        const photos = [
+            {
+                src: "img/yo.jpg",
+                title: "Foto de perfil",
+                description: "Un recuerdo especial."
+            },
+            {
+                src: "img/espejo.jpeg",
+                title: "Momentos",
+                description: "Pequeños recuerdos de mi día a día."
+            },
+            {
+                src: "img/yoooooo.jpg",
+                title: "Estudios",
+                description: "Un espacio relacionado con mi aprendizaje."
+            },
+            {
+                src: "img/gatito.jpeg",
+                title: "Mi gatito",
+                description: "Una compañía especial."
+            },
+            {
+                src: "img/anghex.jpeg",
+                title: "Anghelo",
+                description: "Un momento para recordar."
+            },
+            {
+                src: "img/yopaisaje.jpeg",
+                title: "Paisaje",
+                description: "Un recuerdo en medio del paisaje."
+            },
+            {
+                src: "img/amigos.jpeg",
+                title: "Con amigos",
+                description: "Momentos compartidos."
+            },
+            {
+                src: "img/yochamba.jpeg",
+                title: "Chamba",
+                description: "Un momento de trabajo."
+            },
+            {
+                src: "img/yomoto.jpeg",
+                title: "Moto",
+                description: "Otro recuerdo de mi galería."
+            }
+        ];
+
+
+        // ELEMENTOS DEL CARRUSEL
+        const mainPhoto = document.getElementById("mainPhoto");
+        const photoFrame = document.getElementById("photoFrame");
+        const photoTitle = document.getElementById("photoTitle");
+        const photoDescription = document.getElementById("photoDescription");
+        const photoCounter = document.getElementById("photoCounter");
+        const progressBar = document.getElementById("progressBar");
+
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const thumbnailTrack = document.getElementById("thumbnailTrack");
+
+        let currentIndex = 0;
+        let animationTimer;
+
+
+        // CAMBIAR FOTOGRAFÍA
+        function showPhoto(index) {
+            currentIndex = (index + photos.length) % photos.length;
+
+            const photo = photos[currentIndex];
+
+            photoFrame.classList.remove("photo-enter");
+
+            void photoFrame.offsetWidth;
+
+            mainPhoto.src = photo.src;
+            mainPhoto.alt = photo.title;
+            photoTitle.textContent = photo.title;
+            photoDescription.textContent = photo.description;
+
+            photoCounter.textContent =
+                String(currentIndex + 1).padStart(2, "0") +
+                " / " +
+                String(photos.length).padStart(2, "0");
+
+            progressBar.style.width =
+                ((currentIndex + 1) / photos.length * 100) + "%";
+
+            thumbnails.forEach((thumbnail, indexThumbnail) => {
+                thumbnail.classList.toggle(
+                    "active",
+                    indexThumbnail === currentIndex
+                );
+
+                thumbnail.setAttribute(
+                    "aria-pressed",
+                    indexThumbnail === currentIndex ? "true" : "false"
+                );
+            });
+
+            photoFrame.classList.add("photo-enter");
+
+            thumbnails[currentIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "nearest"
+            });
+        }
+
+
+        // BOTONES LATERALES
+        document.getElementById("prevPhoto").addEventListener("click", () => {
+            showPhoto(currentIndex - 1);
+        });
+
+        document.getElementById("nextPhoto").addEventListener("click", () => {
+            showPhoto(currentIndex + 1);
+        });
+
+
+        // MINIATURAS
+        thumbnails.forEach((thumbnail) => {
+            thumbnail.addEventListener("click", () => {
+                showPhoto(Number(thumbnail.dataset.index));
+            });
+        });
+
+
+        // DESPLAZAMIENTO DE MINIATURAS
+        document.getElementById("prevThumb").addEventListener("click", () => {
+            thumbnailTrack.scrollBy({
+                left: -260,
+                behavior: "smooth"
+            });
+        });
+
+        document.getElementById("nextThumb").addEventListener("click", () => {
+            thumbnailTrack.scrollBy({
+                left: 260,
+                behavior: "smooth"
+            });
+        });
+
+
+        // EFECTO DE CAMBIO AUTOMÁTICO AL PASAR EL RATÓN
+        // La reproducción automática se desactiva si el usuario
+        // interactúa con el carrusel.
+        const photoCarousel = document.getElementById("photoCarousel");
+
+        photoCarousel.addEventListener("mouseenter", () => {
+            clearInterval(animationTimer);
+        });
+
+
+        // NAVEGACIÓN CON EL TECLADO
+        document.addEventListener("keydown", (event) => {
+            const lightbox = document.getElementById("lightbox");
+
+            if (lightbox.classList.contains("active")) {
+                if (event.key === "ArrowLeft") {
+                    showPhoto(currentIndex - 1);
+                    updateLightbox();
+                }
+
+                if (event.key === "ArrowRight") {
+                    showPhoto(currentIndex + 1);
+                    updateLightbox();
+                }
+
+                if (event.key === "Escape") {
+                    closeLightbox();
+                }
+            } else {
+                if (event.key === "ArrowLeft") {
+                    showPhoto(currentIndex - 1);
+                }
+
+                if (event.key === "ArrowRight") {
+                    showPhoto(currentIndex + 1);
+                }
+            }
+        });
+
+
+        // VISOR AMPLIADO
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const lightboxCaption = document.getElementById("lightboxCaption");
+
+        function updateLightbox() {
+            lightboxImage.src = photos[currentIndex].src;
+            lightboxImage.alt = photos[currentIndex].title;
+            lightboxCaption.textContent = photos[currentIndex].title;
+        }
+
+        function openLightbox() {
+            updateLightbox();
+            lightbox.classList.add("active");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+            lightbox.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        }
+
+        document.getElementById("expandPhoto").addEventListener(
+            "click",
+            openLightbox
+        );
+
+        mainPhoto.addEventListener("click", openLightbox);
+
+        document.getElementById("closeLightbox").addEventListener(
+            "click",
+            closeLightbox
+        );
+
+        document.getElementById("lightboxPrev").addEventListener("click", () => {
+            showPhoto(currentIndex - 1);
+            updateLightbox();
+        });
+
+        document.getElementById("lightboxNext").addEventListener("click", () => {
+            showPhoto(currentIndex + 1);
+            updateLightbox();
+        });
+
+        lightbox.addEventListener("click", (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+
+        // MENÚ LATERAL
+        const sidebar = document.getElementById("sidebar");
+        const content = document.getElementById("mainContent");
+        const btnPin = document.getElementById("btnPin");
+
+        function setSidebarState(pinned) {
+            sidebar.classList.toggle("sidebar-hidden", !pinned);
+            content.classList.toggle("sidebar-expanded", !pinned);
+
+            btnPin.classList.toggle("pinned", pinned);
+            btnPin.classList.toggle("unpinned", !pinned);
+
+            btnPin.setAttribute(
+                "aria-label",
+                pinned ? "Ocultar menú" : "Mostrar menú"
+            );
+
+            btnPin.innerHTML = pinned
+                ? '<i class="fa-solid fa-thumbtack"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+
+            localStorage.setItem("sidebarPinned", String(pinned));
+
+            let floatButton = document.querySelector(".btn-pin-float");
+
+            if (!pinned && !floatButton) {
+                floatButton = document.createElement("button");
+                floatButton.className = "btn-pin-float";
+                floatButton.setAttribute("aria-label", "Mostrar menú");
+                floatButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+                floatButton.addEventListener("click", () => {
+                    setSidebarState(true);
+                });
+
+                document.body.appendChild(floatButton);
+            }
+
+            if (pinned && floatButton) {
+                floatButton.remove();
+            }
+        }
+
+        btnPin.addEventListener("click", () => {
+            setSidebarState(sidebar.classList.contains("sidebar-hidden"));
+        });
+
+        const savedSidebarState = localStorage.getItem("sidebarPinned");
+
+        if (savedSidebarState === "false") {
+            setSidebarState(false);
+        } else {
+            setSidebarState(true);
+        }
+
+
+        // INICIALIZACIÓN
+        showPhoto(0);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de contacto profesional de Anghelo Rico.">
+    <title>Contacto | Anghelo Rico</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside id="sidebar">
+        <button class="btn-pin" id="btnPin" aria-label="Fijar sidebar"><i class="fa-solid fa-thumbtack"></i></button>
+        <h2><i class="fa-solid fa-user-graduate"></i> Anghelo Rico</h2>
+        <nav>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre.html"><i class="fa-solid fa-address-card"></i> Sobre mí</a> 
+            <a href="proyectos.html"><i class="fa-solid fa-laptop-code"></i> Proyectos</a> 
+            <a href="blog.html"><i class="fa-solid fa-blog"></i> Blog</a>
+            <a href="galeria.html"><i class="fa-solid fa-image"></i> Galería</a>
+            <a href="contacto.html" class="active"><i class="fa-solid fa-envelope"></i> Contacto</a>
+        </nav>
+    </aside>
+    <div class="content" id="mainContent">
+        <header class="scroll-animate">
+            <h1><i class="fa-solid fa-paper-plane"></i> Contacto</h1>
+            <p>¿Tienes dudas o deseas colaborar en algún proyecto? ¡Escríbeme!</p>
+        </header>
+        <main class="scroll-animate">
+            <p class="intro-text">¿Tienes dudas o deseas colaborar en algún proyecto? Puedes escribirme mediante las siguientes vías:</p>
+            <div class="contact-container">
+                <div class="contact-card email-card">
+                    <h3><i class="fa-solid fa-envelope"></i> Correo Institucional:</h3>
+                    <p><a href="mailto:anghelitorico@gmail.com"><i class="fa-solid fa-at"></i> anghelitorico@gmail.com</a></p>
+                </div>
+                <div class="contact-card whatsapp-card">
+                    <h3><i class="fa-brands fa-whatsapp"></i> WhatsApp:</h3>
+                    <p><a href="https://wa.me/904967524" target="_blank"><i class="fa-brands fa-whatsapp whatsapp-icon"></i> Escríbeme por WhatsApp</a></p>
+                </div>
+            </div>
+            <a href="formulario.html" class="form-access-card">
+                <i class="fa-solid fa-file-signature"></i>
+                <h3>Acceder al Formulario de Registro</h3>
+                <p>Haz clic aquí para completar tu ficha registral o enviar documentación.</p>
+            </a>
+            <div class="schedule-section">
+                <h3 class="section-title"><i class="fa-solid fa-clock"></i> Mi Horario de Estudio</h3>
+                <table class="schedule-table">
+                    <thead><tr><th>Días</th><th>Horario</th></tr></thead>
+                    <tbody><tr><td>Lunes a Viernes</td><td>07:45 hrs - 12:35 hrs</td></tr></tbody>
+                </table>
+            </div>
+            <div class="schedule-section map-section">
+                <h3 class="section-title"><i class="fa-solid fa-location-dot"></i> Ubicación del Instituto</h3>
+                <p style="margin-bottom: 15px; color: #4a5568;">Institución Educativa República Federal de Alemania</p>
+                <div class="map-container"><iframe src="https://maps.google.com/maps?q=-6.774069075195024,-79.85159206131746&z=17&output=embed" title="Ubicación de la Institución Educativa República Federal de Alemania" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                <p style="text-align: center; margin-top: 15px;"><a href="https://www.google.com/maps?q=-6.774069075195024,-79.85159206131746" target="_blank" rel="noopener noreferrer" class="map-link"><i class="fa-solid fa-map"></i> Abrir ubicación en Google Maps</a></p>
+            </div>
+        </main>
+        <footer><p>&copy; 2026 Anghelo Rico - Derechos reservados.</p></footer>
+    </div>
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } else { entry.target.classList.remove('visible'); } }); });
+        document.querySelectorAll('.scroll-animate').forEach(el => { observer.observe(el); });
+    </script>
+    <script>
+        const btnPin = document.getElementById('btnPin'); const sidebar = document.getElementById('sidebar'); const content = document.querySelector('.content'); let isPinned = true;
+        btnPin.addEventListener('click', function() { isPinned = !isPinned; if (isPinned) { sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); const floatBtn = document.querySelector('.btn-pin-float'); if (floatBtn) floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); } else { sidebar.classList.add('sidebar-hidden'); content.classList.add('sidebar-expanded'); btnPin.classList.add('unpinned'); btnPin.classList.remove('pinned'); setTimeout(() => { const floatBtn = document.createElement('button'); floatBtn.className = 'btn-pin-float'; floatBtn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>'; floatBtn.setAttribute('aria-label', 'Mostrar sidebar'); floatBtn.addEventListener('click', function() { isPinned = true; sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); }); document.body.appendChild(floatBtn); }, 400); localStorage.setItem('sidebarPinned', 'false'); } });
+        window.addEventListener('DOMContentLoaded', function() { const savedState = localStorage.getItem('sidebarPinned'); if (savedState === 'false') { isPinned = false; sidebar.classList.add('sidebar-hidden'); content.classList.add('sidebar-expanded'); btnPin.classList.add('unpinned'); btnPin.classList.remove('pinned'); const floatBtn = document.createElement('button'); floatBtn.className = 'btn-pin-float'; floatBtn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>'; floatBtn.setAttribute('aria-label', 'Mostrar sidebar'); floatBtn.addEventListener('click', function() { isPinned = true; sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); }); document.body.appendChild(floatBtn); } });
+    </script>
+</body>
+</html>

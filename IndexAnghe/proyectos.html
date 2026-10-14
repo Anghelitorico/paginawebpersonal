@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyectos desarrollados por Anghelo Rico.">
+    <title>Proyectos | Anghelo Rico</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/proyectos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside id="sidebar">
+        <button class="btn-pin" id="btnPin" aria-label="Fijar sidebar"><i class="fa-solid fa-thumbtack"></i></button>
+        <h2><i class="fa-solid fa-user-graduate"></i> Anghelo Rico</h2>
+        <nav>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre.html"><i class="fa-solid fa-address-card"></i> Sobre mí</a> 
+            <a href="proyectos.html" class="active"><i class="fa-solid fa-laptop-code"></i> Proyectos</a> 
+            <a href="blog.html"><i class="fa-solid fa-blog"></i> Blog</a>
+            <a href="galeria.html"><i class="fa-solid fa-image"></i> Galería</a>
+            <a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a>
+        </nav>
+    </aside>
+    <div class="content" id="mainContent">
+        <header class="scroll-animate">
+            <h1><i class="fa-solid fa-laptop-code"></i> Mis Proyectos</h1>
+            <p>Una muestra de mis trabajos, prácticas y desarrollos tecnológicos.</p>
+        </header>
+        <main class="scroll-animate">
+            <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Proyectos Realizados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Web para Negocios</h3>
+                    <p>Desarrollo de páginas web corporativas para negocios, mostrando información detallada de sus productos, servicios y formularios de contacto optimizados.</p>
+                    <div class="tech-tags"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Diseño Responsivo</span></div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Guía de Desarrollo Web</h3>
+                    <p>Creación de una página web educativa con información detallada y tutoriales sobre la creación de sitios web, facilitando el aprendizaje de nuevos desarrolladores.</p>
+                    <div class="tech-tags"><span class="tech-tag">JavaScript</span><span class="tech-tag">UI/UX</span><span class="tech-tag">Documentación</span></div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Sistema de Gestión</h3>
+                    <p>Prototipo de aplicación web para la administración de bases de datos y registros, aplicando lógica de programación y estructuras de almacenamiento.</p>
+                    <div class="tech-tags"><span class="tech-tag">SQL</span><span class="tech-tag">Backend</span><span class="tech-tag">Lógica</span></div>
+                </div>
+            </div>
+
+            <h2 class="section-title"><i class="fa-brands fa-youtube"></i> Mis Videos Tutoriales</h2>
+            <p class="videos-intro">Aquí encontrarás tutoriales sobre desarrollo web que he creado:</p>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/F_jaibstk88" title="Creación de una página web con HTML" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <h4>CREACIÓN DE UNA PÁGINA WEB CON LENGUAJE DE HIPERTEXTO TRABAJANDO CON VISUAL STUDIO CODE</h4>
+                </div>
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/zlafm_P3PmQ" title="Página web con tablas y diseños" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <h4>PÁGINA WEB (TABLAS Y DISEÑOS)</h4>
+                </div>
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/j7lZHLYbkSg" title="Página web con librería de íconos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <h4>PÁGINA WEB EN VISUAL STUDIO, HTML, CSS, AHORA USANDO UNA LIBRERÍA DE ÍCONOS</h4>
+                </div>
+                <div class="video-card">
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/Wi3xEJy0iIE" title="Explicación de código HTML, CSS y JavaScript" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <h4>EXPLICACIÓN DE CÓDIGO HTML, CSS Y JAVASCRIPT</h4>
+                </div>
+            </div>
+        </main>
+        <footer><p>&copy; 2026 Anghelo Rico - Derechos reservados.</p></footer>
+    </div>
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } else { entry.target.classList.remove('visible'); } }); });
+        document.querySelectorAll('.scroll-animate').forEach(el => { observer.observe(el); });
+    </script>
+    <script>
+        const btnPin = document.getElementById('btnPin'); const sidebar = document.getElementById('sidebar'); const content = document.querySelector('.content'); let isPinned = true;
+        btnPin.addEventListener('click', function() { isPinned = !isPinned; if (isPinned) { sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); const floatBtn = document.querySelector('.btn-pin-float'); if (floatBtn) floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); } else { sidebar.classList.add('sidebar-hidden'); content.classList.add('sidebar-expanded'); btnPin.classList.add('unpinned'); btnPin.classList.remove('pinned'); setTimeout(() => { const floatBtn = document.createElement('button'); floatBtn.className = 'btn-pin-float'; floatBtn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>'; floatBtn.setAttribute('aria-label', 'Mostrar sidebar'); floatBtn.addEventListener('click', function() { isPinned = true; sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); }); document.body.appendChild(floatBtn); }, 400); localStorage.setItem('sidebarPinned', 'false'); } });
+        window.addEventListener('DOMContentLoaded', function() { const savedState = localStorage.getItem('sidebarPinned'); if (savedState === 'false') { isPinned = false; sidebar.classList.add('sidebar-hidden'); content.classList.add('sidebar-expanded'); btnPin.classList.add('unpinned'); btnPin.classList.remove('pinned'); const floatBtn = document.createElement('button'); floatBtn.className = 'btn-pin-float'; floatBtn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>'; floatBtn.setAttribute('aria-label', 'Mostrar sidebar'); floatBtn.addEventListener('click', function() { isPinned = true; sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); }); document.body.appendChild(floatBtn); } });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog e información personal de Anghelo Rico.">
+    <title>Blog | Anghelo Rico</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.ico">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside id="sidebar">
+        <button class="btn-pin" id="btnPin" aria-label="Fijar sidebar"><i class="fa-solid fa-thumbtack"></i></button>
+        <h2><i class="fa-solid fa-user-graduate"></i> Anghelo Rico</h2>
+        <nav>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre.html"><i class="fa-solid fa-address-card"></i> Sobre mí</a> 
+            <a href="proyectos.html"><i class="fa-solid fa-laptop-code"></i> Proyectos</a> 
+            <a href="blog.html" class="active"><i class="fa-solid fa-blog"></i> Blog</a>
+            <a href="galeria.html"><i class="fa-solid fa-image"></i> Galería</a>
+            <a href="contacto.html"><i class="fa-solid fa-envelope"></i> Contacto</a>
+        </nav>
+    </aside>
+    <div class="content" id="mainContent">
+        <header class="scroll-animate">
+            <h1><i class="fa-solid fa-blog"></i> Mi Blog</h1>
+            <p>Información personal y detalles académicos</p>
+        </header>
+        <main class="scroll-animate">
+            <div class="info-table">
+                <div class="info-row"><div class="cabeza"><i class="fa-solid fa-user"></i> Nombre</div><div class="info-content">Anghelo Wilfredo</div></div>
+                <div class="info-row"><div class="cabeza"><i class="fa-solid fa-id-badge"></i> Apellidos</div><div class="info-content">Rico Rodriguez</div></div>
+                <div class="info-row"><div class="cabeza"><i class="fa-solid fa-layer-group"></i> Ciclo</div><div class="info-content">4to Ciclo - Turno Mañana</div></div>
+                <div class="info-row"><div class="cabeza"><i class="fa-solid fa-building-columns"></i> Instituto</div><div class="info-content">Instituto de Educación Superior Rep. Federal de Alemania</div></div>
+                <div class="info-row"><div class="info-content"><div class="img-container"><img src="img/yo.jpg" alt="Foto personal de Anghelo Rico - Click para ampliar" class="blog-img" id="profileImg"></div></div></div>
+            </div>
+        </main>
+        <footer><p>&copy; 2026 Anghelo Rico - Derechos reservados.</p></footer>
+    </div>
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+            <img src="img/yo.jpg" alt="Anghelo Rico - Vista ampliada" class="modal-img" id="modalImg">
+            <div class="close-text">Presiona ESC o haz click fuera para cerrar</div>
+        </div>
+    </div>
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } else { entry.target.classList.remove('visible'); } }); });
+        document.querySelectorAll('.scroll-animate').forEach(el => { observer.observe(el); });
+        const modal = document.getElementById('imageModal'); const profileImg = document.getElementById('profileImg'); const closeBtn = document.getElementById('closeBtn');
+        profileImg.addEventListener('click', function() { modal.classList.add('active'); document.body.style.overflow = 'hidden'; });
+        closeBtn.addEventListener('click', function() { modal.classList.remove('active'); document.body.style.overflow = 'auto'; });
+        modal.addEventListener('click', function(e) { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = 'auto'; } });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) { modal.classList.remove('active'); document.body.style.overflow = 'auto'; } });
+    </script>
+    <script>
+        const btnPin = document.getElementById('btnPin'); const sidebar = document.getElementById('sidebar'); const content = document.querySelector('.content'); let isPinned = true;
+        btnPin.addEventListener('click', function() { isPinned = !isPinned; if (isPinned) { sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); const floatBtn = document.querySelector('.btn-pin-float'); if (floatBtn) floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); } else { sidebar.classList.add('sidebar-hidden'); content.classList.add('sidebar-expanded'); btnPin.classList.add('unpinned'); btnPin.classList.remove('pinned'); setTimeout(() => { const floatBtn = document.createElement('button'); floatBtn.className = 'btn-pin-float'; floatBtn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>'; floatBtn.setAttribute('aria-label', 'Mostrar sidebar'); floatBtn.addEventListener('click', function() { isPinned = true; sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); }); document.body.appendChild(floatBtn); }, 400); localStorage.setItem('sidebarPinned', 'false'); } });
+        window.addEventListener('DOMContentLoaded', function() { const savedState = localStorage.getItem('sidebarPinned'); if (savedState === 'false') { isPinned = false; sidebar.classList.add('sidebar-hidden'); content.classList.add('sidebar-expanded'); btnPin.classList.add('unpinned'); btnPin.classList.remove('pinned'); const floatBtn = document.createElement('button'); floatBtn.className = 'btn-pin-float'; floatBtn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>'; floatBtn.setAttribute('aria-label', 'Mostrar sidebar'); floatBtn.addEventListener('click', function() { isPinned = true; sidebar.classList.remove('sidebar-hidden'); content.classList.remove('sidebar-expanded'); btnPin.classList.add('pinned'); btnPin.classList.remove('unpinned'); floatBtn.remove(); localStorage.setItem('sidebarPinned', 'true'); }); document.body.appendChild(floatBtn); } });
+    </script>
+</body>
+</html>

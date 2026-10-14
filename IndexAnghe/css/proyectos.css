@@ -1,0 +1,145 @@
+.section-title {
+    color: var(--primary);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.section-title i { color: var(--accent); }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px 25px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--gradient-header);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+    border-color: var(--accent);
+}
+.project-card:hover::before { transform: scaleY(1); }
+
+.project-icon {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, rgba(58, 124, 165, 0.1), rgba(0, 51, 102, 0.05));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+.project-card:hover .project-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(58, 124, 165, 0.2), rgba(0, 51, 102, 0.1));
+}
+.project-icon i { font-size: 1.8rem; color: var(--secondary); }
+.project-card h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+.project-card p { font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+
+.tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.tech-tag {
+    background: rgba(58, 124, 165, 0.1);
+    color: var(--secondary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(58, 124, 165, 0.2);
+}
+
+/* VIDEOS TUTORIALES */
+.videos-intro {
+    font-size: 1.05rem;
+    color: #64748b;
+    margin-bottom: 25px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.video-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    animation: floatVideo 6s ease-in-out infinite;
+}
+
+.video-card:nth-child(2) { animation-delay: 0.5s; }
+.video-card:nth-child(3) { animation-delay: 1s; }
+.video-card:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes floatVideo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.video-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation-play-state: paused;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-card h4 {
+    padding: 20px;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    line-height: 1.5;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-top: 3px solid var(--color-secondary);
+    margin: 0;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+}
